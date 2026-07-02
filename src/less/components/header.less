@@ -1,0 +1,42 @@
+.header {
+    position: sticky;
+    top: 0;
+    background: fade(@bg, 90%);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid @border;
+    z-index: 10;
+}
+
+.nav {
+    .flex-center();
+    justify-content: space-between;
+    padding: @gap 0;
+
+    &-logo {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: @text;
+        text-decoration: none;
+    }
+
+    &-links {
+        list-style: none;
+        display: flex;
+        gap: @gap * 1.5;
+
+        a {
+            color: @text-muted;
+            text-decoration: none;
+            .transition(color);
+
+            &:hover {
+                color: @primary;
+            }
+        }
+
+        @media (max-width: #breakpoints[tablet]) {
+            gap: @gap;
+            font-size: 0.85rem;
+        }
+    }
+}

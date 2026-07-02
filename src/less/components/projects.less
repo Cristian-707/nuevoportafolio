@@ -1,0 +1,52 @@
+.about-text {
+    color: @text-muted;
+    max-width: 640px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: @gap * 1.5;
+}
+
+.project-card {
+    .surface();
+    padding: @gap * 1.5;
+    .transition(transform);
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    &-tag {
+        display: inline-block;
+        color: @primary;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: @gap * 0.5;
+    }
+
+    &-title {
+        margin-bottom: @gap * 0.5;
+    }
+
+    &-desc {
+        color: @text-muted;
+        font-size: 0.95rem;
+    }
+}
+
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: @gap * 0.75;
+}
+
+.tag {
+    .surface();
+    padding: (@gap * 0.5) @gap;
+    font-size: 0.9rem;
+    color: @primary;
+}
