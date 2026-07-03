@@ -8,7 +8,7 @@ permissions:
   pages: write
   id-token: write
 env:
-  DEPLOY_BASE_URL: ${{ vars.DEPLOY_BASE_URL}}
+  DEPLOY_BASE_URL: ${{ vars.DEPLOY_BASE_URL }}
 concurrency: 
   group: 'pages'
   cancel-in-progress: true
@@ -17,30 +17,30 @@ jobs:
   build:
     environment:
       name: github-pages
-      url: ${{ steps.github-pages.outputs.page_url }}
+      url: ${{ steps.github-pages.outputs.page_url }} 
     runs-on: ubuntu-latest
     steps:
-    name: Clonar el Repositorio
-    uses: actions/checkout@v4
+      - name: Clonar el Repositorio       
+        uses: actions/checkout@v4
 
-    name: Instalar Node.js
-    uses: actions/setup-node@v6
-    with:
-      node-version: '24'
+      - name: Instalar Node.js
+        uses: actions/setup-node@v6       
+        with:
+          node-version: '24'              
 
-    name: Instalar dependencias
-    run: npm install
+      - name: Instalar dependencias
+        run: npm install
 
-    name: Compilar el proyecto
-    run: npm run build
+      - name: Compilar el proyecto
+        run: npm run build
 
-    name: Configurar a Github Pages
-    uses: actions/configure-pages@v5
+      - name: Configurar a Github Pages
+        uses: actions/configure-pages@v5
 
-    name: Subir a Github Pages
-    uses: actions/upload-pages-artifact@v4
-    with: 
-      path: './dist'
-      
-    name: Publicar a Github Pages
-    uses: actions/deploy-pages@v4
+      - name: Subir a Github Pages
+        uses: actions/upload-pages-artifact@v4 
+        with: 
+          path: './dist'
+          
+      - name: Publicar a Github Pages
+        uses: actions/deploy-pages@v4
