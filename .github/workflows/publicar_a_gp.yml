@@ -16,8 +16,8 @@ concurrency:
 jobs:
   build:
     environment:
-      name: github-page
-      url: ${{ steps.github-page.outputs.page_url }}
+      name: github-pages
+      url: ${{ steps.github-pages.outputs.page_url }}
     run-on: ubuntu-latest
     steps:
     name: Clonar el Repositorio
